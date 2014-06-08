@@ -4,22 +4,21 @@ var Stack = function() {
   this._size = 0;
 };
 
+Stack.prototype.push = function(value){
+  this._size++;
+  this[this._size] = value;
+};
 
-  Stack.prototype.push = function(value){
-    this._size++;
-    this[this._size] = value;
-  };
+Stack.prototype.pop = function(){
+  var temp = this[this._size]
+  delete this[this._size];
+  if(this._size !== 0){
+    this._size--;
+  }
+  return temp;
+};
 
-  Stack.prototype.pop = function(){
-    var temp = this[this._size]
-    delete this[this._size];
-    if(this._size !== 0){
-      this._size--;
-    }
-    return temp;
-  };
-
-  Stack.prototype.size = function(){
+Stack.prototype.size = function(){
     return this._size;
-  };
+};
 
